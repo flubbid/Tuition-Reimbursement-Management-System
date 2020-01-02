@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="ISO-8859-1">
+	<title>Employee Viewer</title>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+
+<body>
+<h3>Grab Employee</h3>
+<input id="emp_id" type="text">
+<input type="button" onclick="getEmployee()" value="Get Employee">
+<div id="result"></div>
+
+
+</body>
+<script>
+	function getEmployee(){
+	let emp_id = document.getElementById("emp_id").value;
+	console.log("EmpID " + emp_id);
+	let xhttp = new XMLHttpRequest();
+	
+	xhttp.onreadystatechange = function(){
+		//console.log("Response " + this.responseText);
+		
+		if(this.readyState == 4 && this.status == 200){
+		console.log("This is the stuff:" + this.responseText);
+			let employee = JSON.parse(this.responseText);
+			console.log(employee + "for jake")
+			let information = 
+				`<h3>id: ${employee.emp_id}</h3>
+				<h3>firstname: ${employee.firstName}</h3>
+				<h3>lastname: ${employee.lastName}</h3>
+				<h3>Account Balance: ${employee.availableReimbursement}
+			`
+			document.getElementById("result").innerHTML = information;
+			
+		}
+		
+	}
+		xhttp.open("GET", "http://localhost:8080/p0TRMS/getEmployee.do?emp_id=" + emp_id, true);
+		
+		xhttp.send();
+		
+	}
+	
+</script>
+</html>
