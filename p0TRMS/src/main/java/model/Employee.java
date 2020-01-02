@@ -2,23 +2,24 @@ package model;
 
 public class Employee {
 
-	private int emp_id, dept_id, directSupervisor;
-	public Employee(int emp_id, int dept_id, int directSupervisor, double availableReimbursement, String firstName,
-			String lastName, String email, String password) {
+	private int emp_id, dept_id, supervisor;
+	
+	public Employee(int emp_id, String firstName, String lastName, String email, String password, int dept_id,
+			int supervisor, double availableReimbursement) {
 		super();
 		this.emp_id = emp_id;
-		this.dept_id = dept_id;
-		this.directSupervisor = directSupervisor;
-		this.availableReimbursement = availableReimbursement;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
+		this.dept_id = dept_id;
+		this.supervisor = supervisor;
+		this.availableReimbursement = availableReimbursement;
 	}
 	@Override
 	public String toString() {
 		return "Employee [emp_id=" + emp_id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", password=" + password + ", dept_id=" + dept_id + ", directSupervisor=" + directSupervisor
+				+ ", password=" + password + ", dept_id=" + dept_id + ", supervisor=" + supervisor
 				+ ", availableReimbursement=" + availableReimbursement + "]";
 	}
 	public int getEmp_id() {
@@ -33,11 +34,11 @@ public class Employee {
 	public void setDept_id(int dept_id) {
 		this.dept_id = dept_id;
 	}
-	public int getDirectSupervisor() {
-		return directSupervisor;
+	public int getsupervisor() {
+		return supervisor;
 	}
-	public void setDirectSupervisor(int directSupervisor) {
-		this.directSupervisor = directSupervisor;
+	public void setsupervisor(int supervisor) {
+		this.supervisor = supervisor;
 	}
 	public double getAvailableReimbursement() {
 		return availableReimbursement;
