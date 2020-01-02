@@ -127,13 +127,6 @@ INSERT INTO employee VALUES (id_generator3.nextval, firstname, lastname, email, 
 dept_id, supervisor, availablereimbursement);
 END;
 
-CREATE OR REPLACE PROCEDURE add_Reimbursement(emp_id NUMBER, grade_id NUMBER, reimTotAmount NUMBER, reimStatus VARCHAR2,
-reimAmtapproved NUMBER, dateSub date, approvalDate DATE, justification VARCHAR2, evt_id NUMBER)
-IS
-BEGIN
-INSERT INTO reimbursement VALUES (id_generator4.nextval, emp_id, grade_id, reimTotAmount, reimStatus,
-reimAmtapproved, datesub, approvalDate, justification, evt_id);
-END;
 
 --Insert Values
 SELECT * FROM EMPLOYEE;
@@ -142,12 +135,19 @@ SELECT * FROM EVENT;
 SELECT * FROM REIMBURSEMENT;
 SELECT * FROM GRADE;
 
+
+-- =========================== ADDS EMPLOYEE DUMMY TABLE DATA ==================================-
 INSERT INTO EMPLOYEE VALUES(1, 'Admin', 'Adminnington', 'admin@gmail.com', 'password', 2, 2, 1000);
 CALL add_Employee('Brendan', 'Wilson', 'brendanwilson@gmail.com', 'password', 2, 2, 1000);
 CALL add_Employee('Jimbo', 'Fisher', 'jimbofisher@gmail.com', 'password', 1, 1, 1000);
 CALL add_Employee('Nick', 'Saban', 'nicksaban@gmail.com', 'password', 1, 1, 1000);
 CALL add_Employee('Less', 'Miles', 'lessmiles@gmail.com', 'password', 1, 3, 1000);
 
+-- =========================== ADDS DEPT DUMMY TABLE DATA ==================================-
+INSERT INTO dept VALUES(1, 'English', 4);
+INSERT INTO dept VALUES(2, 'Science', 3);
+INSERT INTO dept VALUES(3, 'Turf Management', 2);
+INSERT INTO dept VALUES(4, 'WoodWorking', 5);
 
 COMMIT;
 
