@@ -35,12 +35,11 @@ r_id NUMBER(10) PRIMARY KEY,
 emp_id NUMBER(10) , 
 grade_id NUMBER(10), --FK
 reimTotAmount NUMBER(10),
-reimStatus NUMBER(10),
+reimStatus VARCHAR(30),
 reimAmtApproved NUMBER(10),
 dateSub DATE, 
-approvalDate Number(10),
+approvalDate DATE,
 justification VARCHAR2(3000),
-status VARCHAR2(30),
 evt_id NUMBER(10), --fk
 CONSTRAINT fk_reimbursements_employee FOREIGN KEY (emp_id)
 REFERENCES employee(emp_id) ON DELETE CASCADE,
@@ -54,7 +53,8 @@ REFERENCES grades(grade_id) ON DELETE CASCADE
 
 CREATE TABLE EVENTS
 (
-evnt_id NUMBER(10) PRIMARY KEY,reim_id NUMBER(10),
+evnt_id NUMBER(10) PRIMARY KEY,
+reim_id NUMBER(10),
 name VARCHAR(200),
 beginDate DATE, 
 endDate DATE, 
@@ -95,8 +95,22 @@ CREATE SEQUENCE id_generator5
         INCREMENT BY 1;
 
 -- =====================================CREATE/CALL PROCEDURS ==========================================
+         
+CREATE OR REPLACE PROCEDURE add_Employee(firstname VARCHAR2, lastname VARCHAR2, email VARCHAR2, password VARCHAR2,
+dept_id NUMBER, supervisor NUMBER, AVAILABLEREIMBURSEMENT NUMBER)
+IS
+BEGIN
+INSERT INTO employees VALUES (id_generator3.nextval, firstname, lastname, email, password,
+dept_id, supervisor, availablereiumbursement);
+END;
 
-
+CREATE OR REPLACE PROCEDURE add_Reimbursement(emp_id NUMBER, grade_id NUMBER, reimTotAmount NUMBER, reimStatus VARCHAR2,
+reimAmtapproved NUMBER, dateSub date, justification VARCHAR2, status VARCHAR2, evt_id NUMBER)
+IS
+BEGIN
+INSERT INTO employees VALUES (id_generator3.nextval, firstname, lastname, email, password,
+dept_id, supervisor, availablereiumbursement);
+END;
 
 --Insert Values
 SELECT * FROM EMPLOYEE;
