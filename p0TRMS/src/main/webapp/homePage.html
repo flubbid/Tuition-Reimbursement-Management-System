@@ -3,47 +3,50 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 	<title>Employee Viewer</title>
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
+<header>
 
+
+</header>
 <body>
-<h3>Grab Employee</h3>
-<input id="emp_id" type="text">
-<input type="button" onclick="getEmployee()" value="Get Employee">
-<div id="result"></div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Easy Tut's</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="">Reimbursement List<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Reimbursement Form</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Available Balance</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="login.html">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div id="welcomeMessage"></div>
 
 
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+                
+  <script src="js/scripts.js" async defer></script>
 </body>
-<script>
-	function getEmployee(){
-	let emp_id = document.getElementById("emp_id").value;
-	console.log("EmpID " + emp_id);
-	let xhttp = new XMLHttpRequest();
-	
-	xhttp.onreadystatechange = function(){
-		//console.log("Response " + this.responseText);
-		
-		if(this.readyState == 4 && this.status == 200){
-		console.log("This is the stuff:" + this.responseText);
-			let employee = JSON.parse(this.responseText);
-			console.log(employee + "for jake")
-			let information = 
-				`<h3>id: ${employee.emp_id}</h3>
-				<h3>firstname: ${employee.firstName}</h3>
-				<h3>lastname: ${employee.lastName}</h3>
-				<h3>Account Balance: ${employee.availableReimbursement}
-			`
-			document.getElementById("result").innerHTML = information;
-			
-		}
-		
-	}
-		xhttp.open("GET", "http://localhost:8080/p0TRMS/getEmployee.do?emp_id=" + emp_id, true);
-		
-		xhttp.send();
-		
-	}
-	
-</script>
+
 </html>

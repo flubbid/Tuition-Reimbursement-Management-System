@@ -11,6 +11,7 @@
   	<description></description>
   	<servlet-class>serf.Master2Servlet</servlet-class>
   </servlet>
+
   <servlet-mapping>
   	<servlet-name>Master2Servlet</servlet-name>
   	<url-pattern>*.do</url-pattern>

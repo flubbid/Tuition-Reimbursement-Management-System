@@ -149,6 +149,8 @@ INSERT INTO dept VALUES(2, 'Science', 3);
 INSERT INTO dept VALUES(3, 'Turf Management', 2);
 INSERT INTO dept VALUES(4, 'WoodWorking', 5);
 
+--=========================== 
+
 COMMIT;
 
 
