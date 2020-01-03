@@ -65,11 +65,15 @@ evt_id NUMBER(10) PRIMARY KEY,
 name VARCHAR(200),
 beginDate DATE, 
 endDate DATE, 
-evtType VARCHAR(30), 
+evtType VARCHAR2(30), 
 time VARCHAR(8), --comeback to this
-city VARCHAR(30),
-state VARCHAR(30),
-cost NUMBER(10)
+address VARCHAR2(50),
+address2 VARCHAR2(50),
+city VARCHAR2(30),
+state VARCHAR2(30),
+zipcode VARCHAR2(30),
+cost NUMBER(10),
+description VARCHAR(500)
 );
 
 CREATE TABLE Grade
