@@ -26,13 +26,13 @@ public static void process(HttpServletRequest request, HttpServletResponse respo
 			
 
 		
-		case "/p0TRMS/getEmployee.do": {
-			EmployeeWebService.getEmployee(request, response);
+		case "/p0TRMS/homePage.do": {
+			EmployeeWebService.reimList(request, response);
 			break;
 		}
 
-		case "/p0TRMS/addEmployee.do": {
-
+		case "/p0TRMS/login.do": {
+			EmployeeWebService.login(request, response);
 			break;
 		}
 		default: {

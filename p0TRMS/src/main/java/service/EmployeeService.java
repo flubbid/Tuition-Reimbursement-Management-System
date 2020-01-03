@@ -11,6 +11,10 @@ public class EmployeeService {
 
 	public static EmployeeDAO ed = new EmployeeDaoImpl();
 	
+	public static Employee getEmployeeLogin(String email, String password) throws SQLException {
+			return ed.getEmployeeLogin(email, password);	
+	}
+	
 	public static Employee getEmployee(int emp_id) throws SQLException {
 		return ed.getEmployee(emp_id);
 	}

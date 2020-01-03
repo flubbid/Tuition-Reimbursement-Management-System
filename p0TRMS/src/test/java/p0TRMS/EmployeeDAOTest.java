@@ -23,10 +23,15 @@ public class EmployeeDAOTest extends TestCase {
 		
 //		List<Employee> empList = EmployeeService.getAllEmployees();
 		
-		Employee emp = EmployeeService.getEmployee(1);
+		Employee emp = EmployeeService.getEmployee(2);
 				
 		System.out.println(emp);
 //		empList.forEach(System.out::println);
+		String email = "admin@gmail.com";
+		String password = "password";
+		
+		Employee emp1 = EmployeeService.getEmployeeLogin(email, password);
+		System.out.println(emp1);
 		
 	}
 	

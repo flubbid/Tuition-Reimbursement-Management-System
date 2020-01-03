@@ -43,7 +43,35 @@ public class EmployeeDaoImpl implements EmployeeDAO {
 		return null;
 	}
 
+	public Employee getEmployeeLogin(String email, String password) throws SQLException {
+		try {
+			String sql = "SELECT * FROM employee WHERE email = ? and password = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, email);
+			ps.setString(2, password);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				return new Employee(
+						rs.getInt("EMP_ID"),
+						rs.getString("FIRSTNAME"),
+						rs.getString("LASTNAME"),
+						rs.getString("EMAIL"),
+						rs.getString("PASSWORD"),
+						rs.getInt("DEPT_ID"),
+						rs.getInt("SUPERVISOR"),
+						rs.getDouble("AVAILABLEREIMBURSEMENT")
+						);
+						
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
+		return null;
+	}
 
 	public List<Employee> getAllEmployees() throws SQLException {
 		try {
