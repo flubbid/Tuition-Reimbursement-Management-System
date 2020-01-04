@@ -17,7 +17,7 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 	@Override
 	public Reimbursement getReimbursement(int reim_id) {
 		try {
-			String sql = "SELECT * FROM Event WHERE evt_id = ?";
+			String sql = "SELECT * FROM Reimbursement WHERE reim_id = ?";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, reim_id);
 			

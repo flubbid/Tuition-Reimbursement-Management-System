@@ -19,15 +19,18 @@ class ReimbursmentDAOTest {
 		Connection conn = JDBC.getConnection();
 		conn.setAutoCommit(false);
 		
-
-		Reimbursement e = ReimbursementService.getReimbursement(reim_id);
+ try {
+	 
+		Reimbursement e = ReimbursementService.getReimbursement(4);
 			System.out.println(e);
+			
+			assertNotNull(e);
 					
-//		}finally {
-//			conn.rollback();
-//			conn.close();
-//		}
-//		
+	}finally {
+			conn.rollback();
+			conn.close();
+		}
+		
 		
 	}
 
