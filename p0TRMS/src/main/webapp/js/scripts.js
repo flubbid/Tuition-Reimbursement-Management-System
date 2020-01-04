@@ -14,10 +14,9 @@ function login() {
 			
 			let employee = JSON.parse(this.responseText);
 				
-			console.log("emp.name" + employee[firstName])
+			console.log("emp.name" + employee["firstName"])
 			console.log("This is emp: " + employee);
 			if(employee != null){
-				homepage();
 				window.location.href = "homePage.html";
 				
 			} else {
