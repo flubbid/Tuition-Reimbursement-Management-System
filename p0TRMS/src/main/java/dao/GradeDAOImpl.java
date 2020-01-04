@@ -17,7 +17,7 @@ public static Connection conn = JDBC.getConnection();
 	@Override
 	public Grade getGrade(int grade_id) {
 		try {
-			String sql = "SELECT * FROM Event WHERE evt_id = ?";
+			String sql = "SELECT * FROM Grade WHERE grade_id = ?";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, grade_id);
 			
