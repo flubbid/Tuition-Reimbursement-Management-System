@@ -54,7 +54,8 @@ public static Connection conn = JDBC.getConnection();
 	}
 
 	@Override
-	public void updateGrade(int grade_id) {
+	public Grade updateGrade(int grade_id) {
+		return null;
 		// TODO Auto-generated method stub
 
 	}
