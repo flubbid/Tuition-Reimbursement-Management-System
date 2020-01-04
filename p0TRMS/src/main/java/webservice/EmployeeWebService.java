@@ -46,10 +46,10 @@ public class EmployeeWebService {
 			Employee emp = EmployeeService.getEmployeeLogin(email, password);
 			System.out.println("Emp: " + emp);
 			
-			int emp_id = emp.getEmp_id();
-			String firstName = emp.getFirstName();
-			String lastName = emp.getLastName();
-			System.out.println("emp_id" + emp_id);
+//			int emp_id = emp.getEmp_id();
+//			String firstName = emp.getFirstName();
+//			String lastName = emp.getLastName();
+//			System.out.println("emp_id" + emp_id);
 			
 			
 			ObjectMapper om = new ObjectMapper();
@@ -63,10 +63,10 @@ public class EmployeeWebService {
 				HttpSession session = request.getSession();
 				session.setAttribute("email", email);
 				session.setAttribute("password", password);
-				session.setAttribute("emp_id", emp_id);
-				session.setAttribute("firstName", firstName);
-				session.setAttribute("lastName", emp);
-	
+//				session.setAttribute("emp_id", emp_id);
+//				session.setAttribute("firstName", firstName);
+//				session.setAttribute("lastName", emp);
+//	
 			
 		}
 		
