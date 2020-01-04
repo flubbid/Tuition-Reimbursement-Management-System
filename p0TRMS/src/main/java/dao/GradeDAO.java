@@ -1,0 +1,12 @@
+package dao;
+
+import java.util.List;
+
+import model.Grade;
+
+public interface GradeDAO {
+	public Grade getGrade(int grade_id);
+	public Grade createGrade(Grade grade);
+	public List<Grade> getAllGrades();
+	public void updateGrade(int grade_id);
+}
