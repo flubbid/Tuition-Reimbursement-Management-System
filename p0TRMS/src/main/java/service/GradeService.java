@@ -11,17 +11,17 @@ import model.Grade;
 public class GradeService {
 	public static GradeDAO gd = new GradeDAOImpl();
 	
-	public static Grade getGrade(int reim_id) {
-		return gd.getGrade(reim_id);
+	public static Grade getGrade(int grade_id) {
+		return gd.getGrade(grade_id);
 	};
-	public static void createGrade(Grade reim) {
-		gd.createGrade(reim);
+	public static void createGrade(Grade grade) {
+		gd.createGrade(grade);
 	};
 	public static List<Grade> getAllGrade(){
 		return gd.getAllGrades();
 	};
-	public static Grade updateGrade(int reim_id) {
-		return gd.updateGrade(reim_id);
+	public static Grade updateGrade(int grade_id) {
+		return gd.updateGrade(grade_id);
 	};
 	
 	
