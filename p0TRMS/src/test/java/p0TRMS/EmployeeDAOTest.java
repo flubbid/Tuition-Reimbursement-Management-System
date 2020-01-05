@@ -24,19 +24,24 @@ public class EmployeeDAOTest extends TestCase {
 //		EmployeeDAO myEmp = new EmployeeDaoImpl();
 		
 //		List<Employee> empList = EmployeeService.getAllEmployees();
+//		
+//		Employee emp = EmployeeService.getEmployee(2);
+//				
+//		System.out.println(emp);
+////		empList.forEach(System.out::println);
+//		String email = "admin@gmail.com";
+//		String password = "password";
+//		System.out.println("Emp ID: " );
+//		
+//		Employee emp1 = EmployeeService.getEmployeeLogin(email, password);
+////		System.out.println(emp1);
+//		
+//		Event e = EventService.getEvent(11);
+//		System.out.println(e);
+//		
+		List<Employee> peasantList = EmployeeService.getAllPeasants(2);
 		
-		Employee emp = EmployeeService.getEmployee(2);
-				
-		System.out.println(emp);
-//		empList.forEach(System.out::println);
-		String email = "admin@gmail.com";
-		String password = "password";
-		
-		Employee emp1 = EmployeeService.getEmployeeLogin(email, password);
-		System.out.println(emp1);
-		
-		Event e = EventService.getEvent(11);
-		System.out.println(e);
+		System.out.println(peasantList);
 		
 	}
 	

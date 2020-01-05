@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,9 +27,10 @@ public class EventDAOImpl implements EventDAO {
 			if(rs.next()) {
 				return new Event(
 						rs.getInt("EVT_ID"),
+						rs.getString("evtTyoe"),
 						rs.getString("NAME"),
 						rs.getString("DESCRIPTION"),
-						rs.getDouble("COST"),
+						rs.getInt("COST"),
 						rs.getString("BEGINDATE"),
 						rs.getString("ENDDATE"),
 						rs.getString("TIME"),
@@ -50,11 +52,36 @@ public class EventDAOImpl implements EventDAO {
 	
 
 	@Override
-	public Event createEvent(Event evt) {
-		return evt;
-		// TODO Auto-generated method stub
+	public boolean createEvent(String evtType, String name, String description, int cost, String beginDate, String endDate, String time, String address, String address2, String city, String state, int zipcode) {
+		try {
+			String sql = "CALL add_Event(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			CallableStatement cs = conn.prepareCall(sql);
 
+			cs.setString(1, evtType);
+			cs.setString(2, name);
+			cs.setString(3, description);
+			cs.setInt(4, cost);
+			cs.setString(5, beginDate);
+			cs.setString(6, endDate);
+			cs.setString(7, time);
+			cs.setString(8, address);
+			cs.setString(9, address2);
+			cs.setString(10, city);
+			cs.setString(11, state);
+			cs.setInt(12, zipcode);
+			
+						
+				
+			cs.execute();
+			return true;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	
+		return false;
 	}
+	
 
 	@Override
 	public List<Event> getAllEvents() {

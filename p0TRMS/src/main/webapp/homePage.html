@@ -16,7 +16,7 @@
 
 
 </header>
-<body>
+<body onload="onLoading()">
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <a class="navbar-brand" href="#">Easy Tut's</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,21 +25,24 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="">Reimbursement List<span class="sr-only">(current)</span></a>
+        <a class="nav-link" onclick="getReimList()">Reimbursement List<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Reimbursement Form</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Available Balance</a>
+        <a class="nav-link" onclick="availableFunds()">Available Balance</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="login.html">Logout</a>
+        <a class="nav-link" onclick="logout()">Logout</a>
       </li>
     </ul>
   </div>
 </nav>
 <div id="welcomeMessage"></div>
+<!-- <button onclick="generateTestTable()">Generate Table</button> -->
+<div id="reimList1"></div>
+<table class="table table-striped"></table>
 
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

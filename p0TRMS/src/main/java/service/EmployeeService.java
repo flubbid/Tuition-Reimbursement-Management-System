@@ -11,15 +11,20 @@ public class EmployeeService {
 
 	public static EmployeeDAO ed = new EmployeeDaoImpl();
 	
-	public static Employee getEmployeeLogin(String email, String password) throws SQLException {
+	public static Employee getEmployeeLogin(String email, String password){
 			return ed.getEmployeeLogin(email, password);	
 	}
 	
-	public static Employee getEmployee(int emp_id) throws SQLException {
+	public static Employee getEmployee(int emp_id) {
 		return ed.getEmployee(emp_id);
 	}
 	
-	public static List<Employee> getAllEmployees() throws SQLException {
+	
+	public static List<Employee> getAllPeasants(int supervisor) {
+		return ed.getAllPeasants(supervisor);
+	}
+	
+	public static List<Employee> getAllEmployees(){
 		return ed.getAllEmployees();
 	}
 	

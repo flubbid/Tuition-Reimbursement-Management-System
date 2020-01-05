@@ -14,8 +14,8 @@ public class GradeService {
 	public static Grade getGrade(int grade_id) {
 		return gd.getGrade(grade_id);
 	};
-	public static void createGrade(Grade grade) {
-		gd.createGrade(grade);
+	public static boolean createGrade(String gFormat, String passing) {
+		return gd.createGrade(gFormat, passing);
 	};
 	public static List<Grade> getAllGrade(){
 		return gd.getAllGrades();

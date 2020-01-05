@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -42,9 +43,23 @@ public static Connection conn = JDBC.getConnection();
 	}
 
 	@Override
-	public Grade createGrade(Grade grade) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean createGrade(String gFormat, String passing) {
+		try {
+			String sql = "CALL add_Grades(?, ?)";
+			CallableStatement cs = conn.prepareCall(sql);
+
+			cs.setString(1, gFormat);
+			cs.setString(2, passing);
+
+	
+			cs.execute();
+			return true;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	
+		return false;
 	}
 
 	@Override

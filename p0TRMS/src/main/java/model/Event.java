@@ -2,8 +2,8 @@ package model;
 
 public class Event {
 private int evt_id, zipcode;
-private String name, beginDate, endDate, time, address, address2, city, state, description;
-private double cost;
+private String name, beginDate, endDate, time, address, address2, city, state, description, evtType;
+private int cost;
 public int getEvt_id() {
 	return evt_id;
 }
@@ -70,13 +70,13 @@ public String getDescription() {
 public void setDescription(String description) {
 	this.description = description;
 }
-public double getCost() {
+public int getCost() {
 	return cost;
 }
-public void setCost(double cost) {
+public void setCost(int cost) {
 	this.cost = cost;
 }
-public Event(int evt_id, String name, String description, double cost, String beginDate, String endDate, String time,
+public Event(int evt_id, String eventType, String name, String description, int cost, String beginDate, String endDate, String time,
 		String address, String address2, String city, String state, int zipcode) {
 	super();
 	this.evt_id = evt_id;
@@ -92,11 +92,34 @@ public Event(int evt_id, String name, String description, double cost, String be
 	this.state = state;
 	this.zipcode = zipcode;
 }
+
+public Event(String evtType, String name, String description, int cost, String beginDate, String endDate,
+		String time, String address, String address2, String city, String state, int zipcode) {
+	super();
+	this.evtType = evtType;
+	this.name = name;
+	this.description = description;
+	this.cost = cost;
+	this.beginDate = beginDate;
+	this.endDate = endDate;
+	this.time = time;
+	this.address = address;
+	this.address2 = address2;
+	this.city = city;
+	this.state = state;
+	this.zipcode = zipcode;
+}
 @Override
 public String toString() {
-	return "Event [evt_id=" + evt_id + ", name=" + name + ", description=" + description + ", cost=" + cost
-			+ ", beginDate=" + beginDate + ", endDate=" + endDate + ", time=" + time + ", address=" + address
-			+ ", address2=" + address2 + ", city=" + city + ", state=" + state + ", zipcode=" + zipcode + "]";
+	return "Event [evt_id=" + evt_id + ", evtType=" + evtType + ", name=" + name + ", description=" + description
+			+ ", cost=" + cost + ", beginDate=" + beginDate + ", endDate=" + endDate + ", time=" + time + ", address="
+			+ address + ", address2=" + address2 + ", city=" + city + ", state=" + state + ", zipcode=" + zipcode + "]";
+}
+public String getEvtType() {
+	return evtType;
+}
+public void setEvtType(String evtType) {
+	this.evtType = evtType;
 }
 
 
