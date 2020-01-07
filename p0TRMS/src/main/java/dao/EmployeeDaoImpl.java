@@ -31,7 +31,8 @@ public class EmployeeDaoImpl implements EmployeeDAO {
 						rs.getString("PASSWORD"),
 						rs.getInt("DEPT_ID"),
 						rs.getInt("SUPERVISOR"),
-						rs.getDouble("AVAILABLEREIMBURSEMENT")
+						rs.getInt("AVAILABLEREIMBURSEMENT"),
+						rs.getString("POSITION")
 						);
 						
 			}
@@ -61,7 +62,8 @@ public class EmployeeDaoImpl implements EmployeeDAO {
 						rs.getString("PASSWORD"),
 						rs.getInt("DEPT_ID"),
 						rs.getInt("SUPERVISOR"),
-						rs.getDouble("AVAILABLEREIMBURSEMENT")
+						rs.getInt("AVAILABLEREIMBURSEMENT"),
+						rs.getString("POSITION")
 						);
 						
 			}
@@ -90,7 +92,8 @@ public class EmployeeDaoImpl implements EmployeeDAO {
 					rs.getString("PASSWORD"),
 					rs.getInt("DEPT_ID"),
 					rs.getInt("SUPERVISOR"),
-					rs.getDouble("AVAILABLEREIMBURSEMENT")
+					rs.getInt("AVAILABLEREIMBURSEMENT"),
+					rs.getString("POSITION")
 					));
 		
 			
@@ -121,7 +124,8 @@ public class EmployeeDaoImpl implements EmployeeDAO {
 						rs.getString("PASSWORD"),
 						rs.getInt("DEPT_ID"),
 						rs.getInt("SUPERVISOR"),
-						rs.getDouble("AVAILABLEREIMBURSEMENT")
+						rs.getInt("AVAILABLEREIMBURSEMENT"),
+						rs.getString("POSITION")
 						));
 				
 				
@@ -135,10 +139,23 @@ public class EmployeeDaoImpl implements EmployeeDAO {
 		return null;
 	}
 
-	public void updateEmployee(int empId){
-		// TODO Auto-generated method stub
+	public boolean updateEmployeeBalance(int emp_id, int availMoney){
+		String sql = "UPDATE Employee SET AvailableReimbursement = ? WHERE emp_id = ?";
+        
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, availMoney);
+            ps.setInt(2, emp_id);
+                    
+            ps.executeQuery();
+            return true;
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;	
+}
 
-	}
 
 
 

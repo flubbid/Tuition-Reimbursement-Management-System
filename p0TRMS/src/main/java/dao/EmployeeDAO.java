@@ -13,6 +13,7 @@ public interface EmployeeDAO {
 	public void createEmployee(Employee emp);
 	public List<Employee> getAllEmployees();
 	public List<Employee> getAllPeasants(int supervisor);
-	public void updateEmployee(int emp_id);
+
+	public boolean updateEmployeeBalance(int emp_id, int availMoney);
 	
 }

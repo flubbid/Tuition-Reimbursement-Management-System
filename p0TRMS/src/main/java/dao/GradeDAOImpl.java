@@ -41,6 +41,33 @@ public static Connection conn = JDBC.getConnection();
 		return null;
 
 	}
+	
+	@Override
+	public Grade getGradeName(String gradeRecieved) {
+		try {
+			String sql = "SELECT * FROM Grade WHERE passing = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, gradeRecieved);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				return new Grade(
+						rs.getInt("grade_ID"),
+						rs.getString("GFORMAT"),
+						rs.getString("PASSING")
+						
+						);
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+		
+	}
 
 	@Override
 	public boolean createGrade(String gFormat, String passing) {

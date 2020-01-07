@@ -5,7 +5,7 @@ public class Employee {
 	private int emp_id, dept_id, supervisor;
 	
 	public Employee(int emp_id, String firstName, String lastName, String email, String password, int dept_id,
-			int supervisor, double availableReimbursement) {
+			int supervisor, int availableReimbursement, String position) {
 		super();
 		this.emp_id = emp_id;
 		this.firstName = firstName;
@@ -15,6 +15,19 @@ public class Employee {
 		this.dept_id = dept_id;
 		this.supervisor = supervisor;
 		this.availableReimbursement = availableReimbursement;
+		this.position = position;
+	}
+	public int getSupervisor() {
+		return supervisor;
+	}
+	public void setSupervisor(int supervisor) {
+		this.supervisor = supervisor;
+	}
+	public String getPosition() {
+		return position;
+	}
+	public void setPosition(String position) {
+		this.position = position;
 	}
 	@Override
 	public String toString() {
@@ -40,10 +53,10 @@ public class Employee {
 	public void setsupervisor(int supervisor) {
 		this.supervisor = supervisor;
 	}
-	public double getAvailableReimbursement() {
+	public int getAvailableReimbursement() {
 		return availableReimbursement;
 	}
-	public void setAvailableReimbursement(double availableReimbursement) {
+	public void setAvailableReimbursement(int availableReimbursement) {
 		this.availableReimbursement = availableReimbursement;
 	}
 	public String getFirstName() {
@@ -73,7 +86,7 @@ public class Employee {
 	public Employee() {
 		super();
 	}
-	private double availableReimbursement;
-	private String firstName, lastName, email, password;
+	private int availableReimbursement;
+	private String firstName, lastName, email, password, position;
 	
 }

@@ -9,4 +9,5 @@ public interface GradeDAO {
 	public boolean createGrade(String gFormat, String passing);
 	public List<Grade> getAllGrades();
 	public Grade updateGrade(int grade_id);
+	public Grade getGradeName(String gradeRecieved); 
 }

@@ -14,6 +14,10 @@ public class EventService {
 		return evtd.getEvent(evt_id);
 		
 	};
+	public static Event getEventDescription(String eventDescription) {
+		return evtd.getEventDescription(eventDescription);
+		
+	};
 	public static boolean createEvent(String evtType, String name, String description, int cost, String beginDate, String endDate, String time, String address, String address2, String city, String state, int zipcode) {
 		return evtd.createEvent(evtType, name, description, cost, beginDate, endDate, time, address, address2, city, state, zipcode);
 	};

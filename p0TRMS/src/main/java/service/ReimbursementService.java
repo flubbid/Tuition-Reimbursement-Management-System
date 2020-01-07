@@ -18,11 +18,18 @@ public class ReimbursementService {
 		return r.createReimbursement(emp_id, grade_id, reimTotAmount, reimStatus, reimAmtApproved,
 				dateSub, approvalDate, justification, evt_id);
 	};
-	public static List<Reimbursement> getAllReimbursement(int emp_id){
-		return r.getAllReimbursement(emp_id);
+	public static List<Reimbursement> getAllSupervisorReimbursement(int emp_id){
+		return r.getAllSupervisorReimbursement(emp_id);
 	};
-	public static Reimbursement updateReimbursement(int reim_id) {
-		return r.updateReimbursement(reim_id);
+	public static List<Reimbursement> getEveryReimbursement(){
+		return r.getEveryReimbursement();
+	};
+	
+	public static List<Reimbursement> getAllSupervisorReimbursement(String position){
+		return r.getAllSupervisorReimbursement(position);
+	};
+	public static boolean updateReimbursement(int reim_id, String reimStatus) {
+		return r.updateReimbursement(reim_id, reimStatus);
 	};
 	
 }

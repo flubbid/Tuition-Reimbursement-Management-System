@@ -32,8 +32,41 @@ public static void process(HttpServletRequest request, HttpServletResponse respo
 //			EmployeeWebService.reimList(request, response);
 //			break;
 //		}
+		case "/p0TRMS/showMessages.do": {
+			ReimbursmentWebService.showMessages(request, response);
+			break;
+		}
+		case "/p0TRMS/sendMessage.do": {
+			ReimbursmentWebService.sendMessages(request, response);
+			break;
+		}
+		case "/p0TRMS/getPosition.do": {
+			EmployeeWebService.sendThePosition(request, response);
+			break;
+		}
 		case "/p0TRMS/reimList.do": {
 			ReimbursmentWebService.reimList(request, response);
+			break;
+		}
+		case "/p0TRMS/adjustFormCost.do": {
+			ReimbursmentWebService.adjustAvailableBalance(request, response);
+			break;
+		}
+		case "/p0TRMS/approvePending.do": {
+			ReimbursmentWebService.approvePending(request, response);
+			break;
+		}
+		case "/p0TRMS/denyPending.do": {
+			ReimbursmentWebService.denyPending(request, response);
+			break;
+		}
+//		case "/p0TRMS/reimTable.do": {
+//			ReimbursmentWebService.reimTable(request, response);
+//			break;
+//		}
+		case "/p0TRMS/reimForm.do": {
+			ReimbursmentWebService.reimFormInput(request, response);
+		
 			break;
 		}
 		case "/p0TRMS/welcome.do": {

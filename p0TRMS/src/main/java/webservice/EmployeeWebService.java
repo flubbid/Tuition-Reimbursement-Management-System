@@ -3,6 +3,7 @@ package webservice;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,7 +13,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 
 import model.Employee;
+import model.Reimbursement;
 import service.EmployeeService;
+import service.ReimbursementService;
 
 public class EmployeeWebService {
 
@@ -39,6 +42,20 @@ public class EmployeeWebService {
 // 
 //			
 //		}
+	public static void sendThePosition(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		String position = (String) session.getAttribute("position");
+
+		PrintWriter out;
+		try {
+			out = response.getWriter();
+			out.write(position);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
 		
 		public static void login(HttpServletRequest request, HttpServletResponse response) throws SQLException {
 			String email = request.getParameter("email");
@@ -50,6 +67,7 @@ public class EmployeeWebService {
 			System.out.println("Emp: " + emp);
 			int emp_id = emp.getEmp_id();
 			String firstName = emp.getFirstName();
+			String position = emp.getPosition();
 //			int emp_id = emp.getEmp_id();
 //			String firstName = emp.getFirstName();
 //			String lastName = emp.getLastName();
@@ -70,6 +88,7 @@ public class EmployeeWebService {
 				session.setAttribute("emp", emp);
 				session.setAttribute("emp_id", emp_id);
 				session.setAttribute("firstName", firstName);
+				session.setAttribute("position", position);
 //				session.setAttribute("lastName", emp);
 //	
 			
@@ -122,6 +141,28 @@ public class EmployeeWebService {
 		}
 		
 		
+		
+		
+	}
+	
+	public static void getReimTable(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		int emp_id = (int) session.getAttribute("emp_id");
+		
+		List<Reimbursement>reimList	= ReimbursementService.getEveryReimbursement();
+		
+		Gson gson = new Gson();
+		
+		try {
+			
+			String allReim = gson.toJson(reimList);
+			System.out.println(allReim);
+			PrintWriter out = response.getWriter();
+			response.getWriter().append(allReim);		
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 		
 		
 	}

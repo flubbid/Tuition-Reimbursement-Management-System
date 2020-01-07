@@ -27,5 +27,8 @@ public class EmployeeService {
 	public static List<Employee> getAllEmployees(){
 		return ed.getAllEmployees();
 	}
+	public static boolean updateEmployeeBalance(int emp_id, int availMoney) {
+		return ed.updateEmployeeBalance(emp_id, availMoney);
+	}
 	
 }

@@ -50,6 +50,42 @@ public class EventDAOImpl implements EventDAO {
 		return null;
 	}
 	
+	@Override
+	public Event getEventDescription(String eventDescription) {
+		try {
+			String sql = "SELECT * FROM Event WHERE description = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, eventDescription);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				return new Event(
+						rs.getInt("EVT_ID"),
+						rs.getString("evtType"),
+						rs.getString("NAME"),
+						rs.getString("DESCRIPTION"),
+						rs.getInt("COST"),
+						rs.getString("BEGINDATE"),
+						rs.getString("ENDDATE"),
+						rs.getString("TIME"),
+						rs.getString("ADDRESS"),
+						rs.getString("ADDRESS2"),
+						rs.getString("CITY"),
+						rs.getString("STATE"),
+						rs.getInt("ZIPCODE")
+						);
+						
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+	
+	
 
 	@Override
 	public boolean createEvent(String evtType, String name, String description, int cost, String beginDate, String endDate, String time, String address, String address2, String city, String state, int zipcode) {

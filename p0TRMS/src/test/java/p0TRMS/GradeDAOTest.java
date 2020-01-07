@@ -17,7 +17,11 @@ class GradeDAOTest {
 		Connection conn = JDBC.getConnection();
 //		conn.setAutoCommit(false);
 		
-	GradeService.createGrade("percent grade", "89");
+//	GradeService.createGrade("percent grade", "89");
+		System.out.println(
+				
+				GradeService.getGradeName("70")
+				);
 		
 // try {
 //	 
